@@ -1,0 +1,22 @@
+{
+  "name": "projet7_algo",
+  "version": "1.0.0",
+  "description": "projet7 algorithme recherche recette",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeremybosqui/Projet7_Algo.git"
+  },
+  "author": "jeremy bosqui",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeremybosqui/Projet7_Algo/issues"
+  },
+  "homepage": "https://github.com/jeremybosqui/Projet7_Algo#readme",
+  "devDependencies": {
+    "eslint": "^8.13.0"
+  }
+}
