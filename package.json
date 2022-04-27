@@ -4,7 +4,7 @@
   "description": "projet7 algorithme recherche recette",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sass": "sass --watch ./sass/style.scss ./css/style.css --style compressed"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,8 @@
   "homepage": "https://github.com/jeremybosqui/Projet7_Algo#readme",
   "devDependencies": {
     "eslint": "^8.13.0"
+  },
+  "dependencies": {
+    "sass": "^1.51.0"
   }
 }
