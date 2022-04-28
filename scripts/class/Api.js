@@ -45,51 +45,53 @@ export default class Api {
 
         if (Api.allAppliances.length === 0) {
             Api.recipes.forEach ( recipe => {
-                
+                if (!Api.allAppliances.includes(recipe.allAppliances.toLowerCase())) {
+                    Api.allAppliances = [...Api.allAppliances, recipe.appliance.toLowerCase()]
+                }
             })
         }
 
-
-
-
-
-
-
-
-
-
+        return Api.allAppliances
     }
          
-    
+    /**
+     * recupere tous les ustensils de toutes les recettes
+     *  @return {array}
+     */
+    static getAllUstensils = () => {
 
+        if(Api.allUstensils.length === 0) {
+            Api.recipes.forEach(recipe => {
+                recipe.ustensils.map ( ustensile => {
+                    
+                    if (!Api.allUstensils.includes(ustensile.toLowerCase())) {
+                        Api.allUstensils = [...Api.allUstensils, ustensile.toLowerCase()]
+                    }
+                })
+            })
+        }
 
+        return Api.allUstensils
+    }
 
+    // recuparation de toutes les recettes existantes
+    static getAllRecipes = () => {
+        return Api.recipes
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    /**
+     * recupere une recette avec son ID
+     *  @param {number} id
+     *  @returns {object} objet contenant tous les details de la recette
+     */
+    static getRecupe = (id) => {
+        const recipe = Api.recipes.filter(recipe => recipe.id === id)
+        
+        if (recipe.length !==1) {
+            console.error("Recette introuvable.")
+            return
+        }
+        return recipe[0]
+    }
 
 }
