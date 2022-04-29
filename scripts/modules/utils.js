@@ -12,7 +12,7 @@ const truncateStringEllipsis = (str, index) => {
     const strSliced = str.slice(0, index)
     const strSplited = strSliced.split(' ')
 
-    return strSliced.slice(0, (index - strSplited[strSplited.length - 1].length) -1) + "..."
+    return strSliced.slice(0, (index - strSplited[strSplited.length - 1].length) - 1) + "..."
 }
 
 const utils = {
