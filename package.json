@@ -4,7 +4,8 @@
   "description": "projet7 algorithme recherche recette",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch ./sass/style.scss ./css/style.css --style compressed"
+    "sass": "sass --watch ./sass/style.scss ./css/style.css --style compressed",
+    "lint": "eslint --max-warnings=0 ."
   },
   "repository": {
     "type": "git",
