@@ -1,7 +1,5 @@
 import utils from "../modules/utils"
 
-
-
 export default class Recipe {
 
     constructor(data) {
