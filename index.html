@@ -4,41 +4,46 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/175fa63f91.js" crossorigin="anonymous"></script>
+    <title>Les petits plats</title>
+
+    <link rel="icon" href="assets/favicon.ico"> <!--add icon on the website title-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" href="assets/favicon.ico"> <!--add icon on the website title-->
+    
     <script src="scripts/main.js" type="module"></script>
-    <script src="scripts/class/ScrollTop.js" defer></script>
-    <title>Les petits plats</title>
+    <script src="scripts/modules/scrollTopBtn.js" defer></script>
 </head>
 <body>
-    <!--mise en place du bouton scroll top en JS-->
+    <!--mise en place du logo-->
+    <header class="header">
+        <a href="index.html"><img class="header__logo" src="assets/img/logo.svg" alt="Les_petits_plats"></a>
+    </header>
 
+    <!--mise en place du bouton scroll top en JS-->
     <button class="scrollToTopBtn">
         <i class="fa fa-arrow-up" aria-hidden="true"></i>
     </button>
-    <!--mise en place du logo-->
-    <header class="header">
-        <a href="index.html"><img src="assets/img/logo.svg" class="header__logo" alt="logo_les_petits_plats"></a>
-    </header>
-    <!--mise en place de la barre de recherche-->
-    <div aria-label="container_search_bar" class="search-principal">
-        <input type="text" spellcheck="true" name="search-principal" placeholder="Rechercher un ingrédient, appareil, ustensils ou une recette">
+
+    <!-- Barre de recherche principal -->
+    <section class="search-principal">
+        <input type="text" class="search-principal__input" id="search-principal__input" name="search-principal" spellcheck="true" placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette">
         <i class="fas fa-search search-principal__icon"></i>
-    </div
-    >
-    <!--mise en place de la list des tags actif-->
-    <ul id="tags-list" class="tags-list"></ul>
+    </section>
 
-    <!--mise en place de la partie filtre deroulant de recherche-->
-    <div id="filters-dropdown" class="filters-dropdown"></div>
+    <!-- Liste des tags actif -->
+    <ul id="tags-list" class="tags-list">
+    </ul>
 
-    <!--mise en place du container contenant les cards des differentes recettes-->
-    <div id="recipes-container" class="recipes-container">
-        <p class="empty-msg">
-            Aucune recette ne correspond à votre critère… vous pouvez chercher " tarte aux pommes", "poisson", "blender", etc.
-        </p>
-    </div>
+    <!-- Filtre déroulant de recherche -->
+    <section id="filters-dropdown" class="filters-dropdown">
+    </section>
+
+    <!-- Cartes des recettes -->
+    <section id="recipes-container" class="recipes-container">
+        <p class="empty-msg">Aucune recette ne correspond à votre critère… vous pouvez
+            chercher « tarte aux pommes », « poisson », etc.</p>
+    </section>
+
 </body>
 </html>

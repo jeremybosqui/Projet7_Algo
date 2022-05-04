@@ -1,23 +1,23 @@
 /**
- * controle si le clique à eu lieu à l'exterieur d'un element 
+ * Contôle si le clique à eu lieu à l'extérieur d'un élément
  * @param {HTMLElement} target Element cliqué
- * @param {HTMLElement} ref Element de reference
+ * @param {HTMLElement} ref Element de référence 
  * @returns {boolean}
  */
 const clickOut = (target, ref) => {
-    return !ref.contains(target)
+  return !ref.contains(target)
 }
 
 const truncateStringEllipsis = (str, index) => {
-    const strSliced = str.slice(0, index)
-    const strSplited = strSliced.split(' ')
+  let strSliced = str.slice(0, index);
+  let strSplited = strSliced.split(" ");
 
-    return strSliced.slice(0, (index - strSplited[strSplited.length - 1].length) - 1) + "..."
+  return strSliced.slice(0, (index - strSplited[strSplited.length - 1].length) - 1) + "...";
 }
 
 const utils = {
-    clickOut,
-    truncateStringEllipsis
+  clickOut,
+  truncateStringEllipsis
 }
 
-export default utils
+export default utils;
