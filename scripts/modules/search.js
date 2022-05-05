@@ -1,7 +1,8 @@
 import FilterDropdown from '../class/FilterDropdown.js';
 
 const search = (filters, recipes) => {
-  console.time("algo1")
+  /*  test console algo1
+  console.time("algo1") */
   let principalSearch;
 
   if (document.getElementById('search-principal__input').value.length >= 3) {
@@ -12,17 +13,20 @@ const search = (filters, recipes) => {
     let visible = true;
 
     if (filters !== []) {
-      //let superArray = [recipe.appareils.toLowerCase()];
-      //superArray = superArray.concat(recipe.ingredients.map(ingredients => ingredients.ingredient.toLowerCase()));
-      //superArray = superArray.concat(recipe.ustensils.map(ustensil => ustensil.toLowerCase()));
+      let superArray = [recipe.appareils.toLowerCase()];
+      superArray = superArray.concat(recipe.ingredients.map(ingredients => ingredients.ingredient.toLowerCase()));
+      superArray = superArray.concat(recipe.ustensils.map(ustensil => ustensil.toLowerCase()));
 
+      /* test console algo1
       let allFilters  = [recipe.appareils.toLowerCase()];
       allFilters = allFilters.concat(recipe.ingredients.map(ingredients => ingredients.ingredient.toLowerCase()));
-      allFilters = allFilters.concat(recipe.ustensils.map(ustensil => ustensil.toLowerCase()));
+      allFilters = allFilters.concat(recipe.ustensils.map(ustensil => ustensil.toLowerCase())); */
 
       filters.forEach(filter => {
-        //if(!superArray.includes(filter.name.toLowerCase()))
-          if (!allFilters.includes(filter.name.toLowerCase())) {
+        if(!superArray.includes(filter.name.toLowerCase()))
+          /* test console algo1
+          if (!allFilters.includes(filter.name.toLowerCase())) */
+          {
           visible = false;
         }
       })
@@ -51,7 +55,8 @@ const search = (filters, recipes) => {
     document.querySelector('.recipes-container .empty-msg').classList.remove('visible');
   }
 
-  console.timeEnd("algo1");
+  /* test console algo1
+  console.timeEnd("algo1"); */
 
 }
 
