@@ -7,7 +7,7 @@ export default class Api{
   static allAppliances = [];
   static allUstensils = [];
 
-  // Simule une connection à une base de donnée avec un fichier json
+  // Simule une connection à la base de donnée avec le fichier json
      
   static init = async () => {
     const req = await fetch('./recipes.json');
