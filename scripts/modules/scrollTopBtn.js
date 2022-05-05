@@ -5,7 +5,7 @@ const rootElement = document.documentElement;
 
 function handleScroll() {
   // donner les indications au bouton en lui disant de remonter en haut de la page et definir une hauteur
-  var scrollTotal = rootElement.scrollHeight - rootElement.clientHeight
+  let scrollTotal = rootElement.scrollHeight - rootElement.clientHeight
   if ((rootElement.scrollTop / scrollTotal) > 0.45) {
     // montrer le bouton
     scrollToTopBtn.classList.add("showBtn");
@@ -15,7 +15,7 @@ function handleScroll() {
   }
 }
 function scrollToTop() {
-  // Scroll en haut de la page avec un comportement doux pour que le scroll ne soit pas violent vers le haut de la page
+  // Scroll en haut de la page avec un comportement doux 
   rootElement.scrollTo({
     top: 0,
     behavior: "smooth"
