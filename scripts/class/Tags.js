@@ -1,7 +1,6 @@
 import DOM from "../modules/dom.js";
 import search from "../modules/search.js";
 import Recipe from "./Recipe.js";
-import FilterDropdown from "./FilterDropdown.js";
 
 export default class Tags{
   constructor(type, name) {

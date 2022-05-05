@@ -160,12 +160,12 @@ export default class FilterDropdown{
       })
     })
     // mise en place du message d'erreur
-  setTimeout(() => {
+  /*setTimeout(() => {
     FilterDropdown.showEmptyMessage()
-  }, 0);
+  }, 0);*/
   }
   // affiche / n'affiche pas le msg d'erreur si l'element selectionné === 0
-  static showEmptyMessage = () => {
+  /*static showEmptyMessage = () => {
 
     let ingredient = document.querySelectorAll('.ingredient-dropdown li:not(.hiddien-by-tags):not(.already-selected)');
     let appareil = document.querySelectorAll('appareil-dropdonw li:not(.hidden-by-tags):not(.already-selected)');
@@ -175,7 +175,7 @@ export default class FilterDropdown{
       document.querySelector('.ingredient-dropdown .empty-msg').classList.add('visbile');
     } else {
       document.querySelector('ingredient-dropdonw .empty-msg').classList.remove('visible');
-    }
+    } 
 
     if (appareil.length === 0) {
       document.querySelector('appareil-dropdown .empty-msg').classList.add('visible');
@@ -187,8 +187,8 @@ export default class FilterDropdown{
       document.querySelector('.ustensile-dropdown .empty-msg').classList.add('visible');
     } else {
       document.querySelector('.ustensile-dropdown .empty-msg').classList.remove('visible');
-    }
+    } 
 
-  }
+  } */
 
 }
