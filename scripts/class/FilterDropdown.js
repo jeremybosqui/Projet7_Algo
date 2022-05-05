@@ -48,13 +48,18 @@ export default class FilterDropdown{
     let list = document.createElement('ul');
     list.setAttribute('class', `dropdown-item__list ${this.type}-dropdown`);
 
-
+    // Remplissage de la liste 
     this.items.forEach(item => {
       list.appendChild(item.listElement());
       this.tagList = [...this.tagList, item];
     });
 
-        
+    // creation et ajout du message "aucun filtre disponible"
+    let emptyMsg = document.createElement('p');
+    emptyMsg.setAttribute('class', 'empty-msg');
+    emptyMsg.innerText = "Aucun filtre disponible";
+    
+    list.appendChild(emptyMsg);
 
     // Ajout des éléments créer dans le contenant
     container.appendChild(input);
@@ -130,13 +135,14 @@ export default class FilterDropdown{
     }
   }
  
-  // mise à jour des ustensils / ingredients / appareils dans le dropdown
+  // update des ustensils / ingredients / appareils dans le dropdown
+  //
   static updateDropDowns = () => {
     let lis = document.querySelectorAll('.dropdown-item__list li');
     lis.forEach(li => li.classList.add('hidden-by-tags'));
 
     let recipes = Recipe.instances.filter(recipe => recipe.visible );
-
+    //
     recipes.forEach(recipe => {
       let appareils = document.querySelectorAll(`.appareil-dropdown [data-value="${recipe.appareils}"]`);
       appareils.forEach(appareil => appareil.classList.remove('hidden-by-tags'));
@@ -153,5 +159,36 @@ export default class FilterDropdown{
         ustensilElement.classList.remove('hidden-by-tags');
       })
     })
+    // mise en place du message d'erreur
+  setTimeout(() => {
+    FilterDropdown.showEmptyMessage()
+  }, 0);
   }
+  // affiche / n'affiche pas le msg d'erreur si l'element selectionné === 0
+  static showEmptyMessage = () => {
+
+    let ingredient = document.querySelectorAll('.ingredient-dropdown li:not(.hiddien-by-tags):not(.already-selected)');
+    let appareil = document.querySelectorAll('appareil-dropdonw li:not(.hidden-by-tags):not(.already-selected)');
+    let ustensile = document.querySelectorAll('ustensile-dropdown li:not(.hidden-by-tags):not(.already-selected)');
+
+    if (ingredient.length === 0) {
+      document.querySelector('.ingredient-dropdown .empty-msg').classList.add('visbile');
+    } else {
+      document.querySelector('ingredient-dropdonw .empty-msg').classList.remove('visible');
+    }
+
+    if (appareil.length === 0) {
+      document.querySelector('appareil-dropdown .empty-msg').classList.add('visible');
+    } else {
+      document.querySelector('appareil-dropdown .empty-msg').classList.remove('visible');
+    }
+
+    if (ustensile.length === 0) {
+      document.querySelector('.ustensile-dropdown .empty-msg').classList.add('visible');
+    } else {
+      document.querySelector('.ustensile-dropdown .empty-msg').classList.remove('visible');
+    }
+
+  }
+
 }
