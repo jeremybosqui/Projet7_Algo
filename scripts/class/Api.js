@@ -1,5 +1,4 @@
-// Creation de l'api (qui devra être modifier)
- 
+// cette classe simule une api, elle devra être modifier pour mise en prod une fois l'api créer
 export default class Api{
 
   static recipes = [];
@@ -7,10 +6,13 @@ export default class Api{
   static allAppliances = [];
   static allUstensils = [];
 
-  // Simule une connection à la base de donnée avec le fichier json
+  // simule une connection à une base de donnée avec un fichier json
      
   static init = async () => {
     const req = await fetch('./recipes.json');
+    if (!req.ok) {
+      throw "Données momentanément indisponible"; // throw une erreur qui s'affichera dans le cas où les données ne peuvent pas être récupéré 
+    }
     const data = await req.json();
     Api.recipes = data.recipes;
   }
@@ -72,7 +74,7 @@ export default class Api{
     return Api.allUstensils;
   }
 
-  // Récupère toutes les recettes existantes
+  // récupère toutes les recettes existantes
      
   static getAllRecipes = () => {
     return Api.recipes;
@@ -87,7 +89,7 @@ export default class Api{
     const recipe = Api.recipes.filter(recipe => recipe.id === id);
 
     if (recipe.length !== 1) {
-      console.error("Recette introuvable.");
+      console.error("Recette introuvable."); // affiche une erreur dans le cas où la recette ne peut être trouvé
       return;
     }
     return recipe[0];

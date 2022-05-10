@@ -15,10 +15,10 @@ export default class FilterDropdown{
   static instances = [];
 
 
-  // Créer la vue du filtre "dropdown"
+  // créer la vue du filtre "dropdown"
      
   create = () => {
-    // Création de contenant
+    // création de contenant
     let container = document.createElement('div');
     container.setAttribute('class', `dropdown-item dd-${this.type}`);
     container.setAttribute('data-state', 'close');
@@ -31,24 +31,24 @@ export default class FilterDropdown{
     input.setAttribute('name', `${this.type}-input`);
     input.setAttribute('placeholder', `Rechercher un ${this.label}`);
 
-    // Ajout d'un écouteur de saisie dans le champ de recherche
+    // ajout d'un écouteur de saisie dans le champ de recherche
     input.addEventListener('input', this.search)
 
-    // Création du label
+    // création du label
     let label = document.createElement('p');
     label.setAttribute('class', 'dropdown-item__label');
     label.innerText = `${this.label}s`;
 
-    // Création de l'icon
+    // création de l'icon
     let icon = document.createElement('i');
     icon.setAttribute('class', 'fas fa-chevron-down dropdown-item__icon');
     this.closeIcon = icon;
 
-    // Création de la liste d'élement
+    // création de la liste d'élement
     let list = document.createElement('ul');
     list.setAttribute('class', `dropdown-item__list ${this.type}-dropdown`);
 
-    // Remplissage de la liste 
+    // remplissage de la liste 
     this.items.forEach(item => {
       list.appendChild(item.listElement());
       this.tagList = [...this.tagList, item];
@@ -61,13 +61,13 @@ export default class FilterDropdown{
     
     list.appendChild(emptyMsg);
 
-    // Ajout des éléments créer dans le contenant
+    // ajout des éléments créer dans le contenant
     container.appendChild(input);
     container.appendChild(label);
     container.appendChild(icon);
     container.appendChild(list);
 
-    // Ajout de l'écouteur de clique pour ouverture
+    // ajout de l'écouteur de clique pour ouverture
     container.addEventListener('click', this.open)
 
     this.element = container;
@@ -159,12 +159,12 @@ export default class FilterDropdown{
         ustensilElement.classList.remove('hidden-by-tags');
       })
     })
-    // mise en place du message d'erreur
-  setTimeout(() => {
-    FilterDropdown.showEmptyMessage()
-  }, 0);
+    // ajoute l'execution de la methode "showEmptyMessage()" à la fin de la boucle d'evenement JS
+    setTimeout(() => {
+      FilterDropdown.showEmptyMessage()
+    }, 0);
   }
-  // affiche / n'affiche pas le msg d'erreur si l'element selectionné === 0
+  // affiche / n'affiche pas le msg d'erreur à l'utilisateur s'il en a besoin / si la longueur de (ingredient / appareil/ ustensil) === 0
   static showEmptyMessage = () => {
 
     let ingredient = document.querySelectorAll('.ingredient-dropdown li:not(.hiddien-by-tags):not(.already-selected)');
