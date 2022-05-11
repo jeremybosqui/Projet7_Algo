@@ -3,7 +3,7 @@ import FilterDropdown from '../class/FilterDropdown.js';
 const search = (filters, recipes) => {
   // instanciation des const
   const searchBar = document.getElementById('search-principal__input');
-  const search = (searchBar.value.length >= 3) ? searchBar.value : null;
+  const search = searchBar.value.length >= 3 ? searchBar.value : null; // operateur ternaire : si searchBar.value.length >= 3 alors searchBar = value sinon searchBar = null
 
   // boucle sur chaque recette et test s'il y a une correspondance avec les filtres ou la recherche de l'utilisateur
   recipes.forEach(recipe => {

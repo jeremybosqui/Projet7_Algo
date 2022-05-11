@@ -53,7 +53,7 @@ export default class Tags{
     return element;
   }
 
-  // Ajout le tag au tags actif et l'affiche sur la page
+  // ajout le tag au tags actif et l'affiche sur la page
      
   add = () => {
     Tags.active = [...Tags.active, this];
@@ -64,7 +64,7 @@ export default class Tags{
     
   }
 
-  // Supprime le tag des tags actif et le supprime de la page
+  // supprime le tag des tags actif et le supprime de la page
      
   delete = () => {
     let newActiveTags = Tags.active.filter(tag => tag !== this);

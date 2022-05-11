@@ -136,13 +136,12 @@ export default class FilterDropdown{
   }
  
   // update des ustensils / ingredients / appareils dans le dropdown
-  //
   static updateDropDowns = () => {
     let lis = document.querySelectorAll('.dropdown-item__list li');
     lis.forEach(li => li.classList.add('hidden-by-tags'));
-
+    
     let recipes = Recipe.instances.filter(recipe => recipe.visible );
-    //
+    
     recipes.forEach(recipe => {
       let appareils = document.querySelectorAll(`.appareil-dropdown [data-value="${recipe.appareils}"]`);
       appareils.forEach(appareil => appareil.classList.remove('hidden-by-tags'));
@@ -164,7 +163,7 @@ export default class FilterDropdown{
       FilterDropdown.showEmptyMessage()
     }, 0);
   }
-  // affiche / n'affiche pas le msg d'erreur à l'utilisateur s'il en a besoin / si la longueur de (ingredient / appareil/ ustensil) === 0
+  // affiche le msg d'erreur à l'utilisateur s'il en a besoin / si la longueur de (ingredient / appareil/ ustensil) === 0 ; sinon remove le message
   static showEmptyMessage = () => {
 
     let ingredient = document.querySelectorAll('.ingredient-dropdown li:not(.hiddien-by-tags):not(.already-selected)');

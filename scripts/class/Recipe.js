@@ -74,7 +74,7 @@ export default class Recipe{
     return container;
   }
 
-  // Bascule la visibilité entre visible et non visible
+  // bascule la visibilité entre visible et non visible
      
   toggleVisibility = () => {
     this.element.classList.toggle('hidden');
