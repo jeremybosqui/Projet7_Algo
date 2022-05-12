@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="_2jcx-t62Wp5KSKA55ZE" name="Page-1">
-        <mxGraphModel dx="1286" dy="744" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="850" math="0" shadow="0">
+        <mxGraphModel dx="1535" dy="744" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="850" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -15,6 +15,25 @@
                 </mxCell>
                 <mxCell id="5" value="non" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=#C73500;fillColor=#fa6800;sketch=0;shadow=0;fontColor=#000000;" vertex="1" parent="1">
                     <mxGeometry x="110" y="310" width="30" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="" style="shape=table;startSize=0;container=1;collapsible=0;childLayout=tableLayout;" vertex="1" parent="1">
+                    <mxGeometry x="20" y="700" width="500" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="6">
+                    <mxGeometry width="500" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Légende&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;&lt;span style=&quot;white-space: pre&quot;&gt;&#9;&lt;/span&gt;" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;align=left;" vertex="1" parent="7">
+                    <mxGeometry width="500" height="40" as="geometry">
+                        <mxRectangle width="500" height="40" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="9" value="" style="shape=partialRectangle;collapsible=0;dropTarget=0;pointerEvents=0;fillColor=none;top=0;left=0;bottom=0;right=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="6">
+                    <mxGeometry y="40" width="500" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="&lt;p style=&quot;line-height: 1.8&quot;&gt;Utilisation de la méthode filter pour générer un nouveau tableau si la valeur de la recherche&lt;br&gt;correspond à une valeur liée aux ingrédients/&amp;nbsp; ustensils/&amp;nbsp; appareils&amp;nbsp; d'une recette&lt;/p&gt;" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;overflow=hidden;fillColor=none;top=0;left=0;bottom=0;right=0;pointerEvents=1;align=left;" vertex="1" parent="9">
+                    <mxGeometry width="500" height="60" as="geometry">
+                        <mxRectangle width="500" height="60" as="alternateBounds"/>
+                    </mxGeometry>
                 </mxCell>
             </root>
         </mxGraphModel>
