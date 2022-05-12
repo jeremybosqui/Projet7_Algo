@@ -4,7 +4,7 @@ const search = (filters, recipes) => {
 
     const searchBar = document.getElementById('search-principal__input');
 
-    const search = (searchBar.value.length >= 3) ? searchBar.value : null;
+    const search = (searchBar.value.length >= 3) ? searchBar.value : null; 
 
     
     // Boucle sur chaque recette et test s'il y a une correspondance avec les filtres ou la recherche de l'utilisateur
