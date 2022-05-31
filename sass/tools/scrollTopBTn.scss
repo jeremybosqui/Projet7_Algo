@@ -1,34 +1,33 @@
 .scrollToTopBtn {
-    background-color: rgba(0, 0, 0, 0.295);
-    border: none;
-    border-radius: 50%;
-    color: white;
-    cursor: pointer;
-    font-size: 16px;
-    line-height: 48px;
-    width: 48px;
+  background-color: rgba(0, 0, 0, 0.295);
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 48px;
+  width: 48px;
 
-    /* placer le bouton à droite */
-    position: fixed;
-    bottom: 150px;
-    right: 1.5px;
+  /* placer le bouton à droite */
+  position: fixed;
+  bottom: 150px;
+  right: 1.5px;
 
-    /* z-index pour qu'il soit visible qu'importe ce qu'il y a */
-    z-index: 100;
+  /* z-index pour qu'il soit visible qu'importe ce qu'il y a */
+  z-index: 100;
 
-    /* cacher avec de l'opacité */
-    opacity: 0;
+  /* cacher avec de l'opacité */
+  opacity: 0;
 
-    /* ajouter le translate effect */
-    transform: translateY(100px);
+  /* ajouter le translate effect */
+  transform: translateY(100px);
 
-    /* ajouter la transition */
-    transition: all .5s ease
-  } 
+  /* ajouter la transition */
+  transition: all .5s ease
+} 
 
-  /* montrer le bouton en changeant l'opacité */
-  .showBtn {
-    opacity: 1;
-    transform: translateY(0)
-  }
-  
+/* montrer le bouton en changeant l'opacité */
+.showBtn {
+  opacity: 1;
+  transform: translateY(0)
+}
