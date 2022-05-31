@@ -4,7 +4,7 @@
  * @param {HTMLElement} ref Element de référence 
  * @returns {boolean}
  */
- const clickOut = (target, ref) => {
+const clickOut = (target, ref) => {
   return !ref.contains(target)
 }
 

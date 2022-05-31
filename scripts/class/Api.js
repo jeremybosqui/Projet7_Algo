@@ -1,7 +1,7 @@
 /**
  * Cette classe simule une api, elle devra être modifier pour mise en prod une fois l'api créer
  */
- export default class Api{
+export default class Api{
 
   static recipes = [];
   static allIngredients = [];
@@ -12,12 +12,12 @@
    * Simule une connection à une base de donnée avec un fichier json
    */
   static init = async () => {
-      const req = await fetch('./recipes.json');
-      if (!req.ok) {
-          throw "Données momentanément indisponible";
-      }
-      const data = await req.json();
-      Api.recipes = data.recipes;
+    const req = await fetch('./recipes.json');
+    if (!req.ok) {
+      throw "Données momentanément indisponible";
+    }
+    const data = await req.json();
+    Api.recipes = data.recipes;
   }
 
   /**
@@ -26,19 +26,19 @@
    */
   static getAllIngredients = () => {
 
-      if (Api.allIngredients.length === 0) {
-          Api.recipes.forEach(recipe => {
-              recipe.ingredients.map( ingredients => {
-                  const ingredient =  ingredients.ingredient;
+    if (Api.allIngredients.length === 0) {
+      Api.recipes.forEach(recipe => {
+        recipe.ingredients.map( ingredients => {
+          const ingredient =  ingredients.ingredient;
 
-                  if (!Api.allIngredients.includes(ingredient.toLowerCase())) {
-                      Api.allIngredients = [...Api.allIngredients, ingredient.toLowerCase()];
-                  }
-              })
-          })
-      }
+          if (!Api.allIngredients.includes(ingredient.toLowerCase())) {
+            Api.allIngredients = [...Api.allIngredients, ingredient.toLowerCase()];
+          }
+        })
+      })
+    }
 
-      return Api.allIngredients;
+    return Api.allIngredients;
   }
 
   /**
@@ -47,15 +47,15 @@
    */
   static getAllAppliances = () => {
 
-      if (Api.allAppliances.length === 0) {
-          Api.recipes.forEach(recipe => {
-              if (!Api.allAppliances.includes(recipe.appliance.toLowerCase())) {
-                  Api.allAppliances = [...Api.allAppliances, recipe.appliance.toLowerCase()];
-              }
-          })
-      }
+    if (Api.allAppliances.length === 0) {
+      Api.recipes.forEach(recipe => {
+        if (!Api.allAppliances.includes(recipe.appliance.toLowerCase())) {
+          Api.allAppliances = [...Api.allAppliances, recipe.appliance.toLowerCase()];
+        }
+      })
+    }
 
-      return Api.allAppliances;
+    return Api.allAppliances;
   }
 
   /**
@@ -63,25 +63,25 @@
    * @returns {array} Tableau contenant tous les ustensiles de toutes les recettes
    */
   static getAllUstensils = () => {
-      if (Api.allUstensils.length === 0) {
-          Api.recipes.forEach(recipe => {
-              recipe.ustensils.map( ustensile => {
+    if (Api.allUstensils.length === 0) {
+      Api.recipes.forEach(recipe => {
+        recipe.ustensils.map( ustensile => {
 
-                  if (!Api.allUstensils.includes(ustensile.toLowerCase())) {
-                      Api.allUstensils = [...Api.allUstensils, ustensile.toLowerCase()];
-                  }
-              })
-          })
-      }
+          if (!Api.allUstensils.includes(ustensile.toLowerCase())) {
+            Api.allUstensils = [...Api.allUstensils, ustensile.toLowerCase()];
+          }
+        })
+      })
+    }
 
-      return Api.allUstensils;
+    return Api.allUstensils;
   }
 
   /**
    * Récupère toutes les recettes existantes
    */
   static getAllRecipes = () => {
-      return Api.recipes;
+    return Api.recipes;
   }
 
   /**
@@ -90,12 +90,12 @@
    * @returns {object} Objet contenant tous les détails de la recette
    */
   static getRecipe = (id) => {
-      const recipe = Api.recipes.filter(recipe => recipe.id === id);
+    const recipe = Api.recipes.filter(recipe => recipe.id === id);
 
-      if (recipe.length !== 1) {
-          console.error("Recette introuvable.");
-          return;
-      }
-      return recipe[0];
+    if (recipe.length !== 1) {
+      console.error("Recette introuvable.");
+      return;
+    }
+    return recipe[0];
   }
 }
