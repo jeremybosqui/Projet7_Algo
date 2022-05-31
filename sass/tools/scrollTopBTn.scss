@@ -8,25 +8,25 @@
     line-height: 48px;
     width: 48px;
 
-    /* place it at the bottom right corner */
+    /* placer le bouton à droite */
     position: fixed;
     bottom: 150px;
     right: 1.5px;
 
-    /* keep it at the top of everything else */
+    /* z-index pour qu'il soit visible qu'importe ce qu'il y a */
     z-index: 100;
 
-    /* hide with opacity */
+    /* cacher avec de l'opacité */
     opacity: 0;
 
-    /* also add a translate effect */
+    /* ajouter le translate effect */
     transform: translateY(100px);
 
-    /* add transition */
+    /* ajouter la transition */
     transition: all .5s ease
   } 
 
-  /* show Btn with opacity */
+  /* montrer le bouton en changeant l'opacité */
   .showBtn {
     opacity: 1;
     transform: translateY(0)

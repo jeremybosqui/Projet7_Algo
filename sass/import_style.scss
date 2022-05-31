@@ -1,0 +1,9 @@
+// mise en place des différents imports de pages sur le scss principale pour faire fonctionner le tout 
+@import './tools/import_police_ecriture.scss';
+@import './tools/variables_build.scss';
+@import'./tools/scrollTopBTn.scss';
+@import './style_de_base/Style_Build.scss';
+@import './composants_scss/tags_build.scss';
+@import './composants_scss/recherche_dropdown_build.scss';
+@import './composants_scss/recettes_build.scss';
+@import './page_recherche/recherche.scss';

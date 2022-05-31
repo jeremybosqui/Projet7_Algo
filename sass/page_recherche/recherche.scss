@@ -1,4 +1,4 @@
-// Structure de la page de recherche
+
 
 .header{
     display: grid;
@@ -23,7 +23,7 @@
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
-        font-size: 1.125rem;
+        font-size: 15px;
     }
 
     &__icon{
@@ -35,7 +35,7 @@
         width: 70px;
         height: 70px;
 
-        font-size: 1.8rem;
+        font-size: 15px;
         transition: transform .3s ease;
         cursor: pointer;
 
@@ -74,7 +74,7 @@
         margin-top: 20px;
         grid-area: 1 / 1 / 1 / 4;
         text-align: center;
-        font-size: 1.2rem;
+        font-size: 15px;
 
         &.visible{ display: block; }
     }
