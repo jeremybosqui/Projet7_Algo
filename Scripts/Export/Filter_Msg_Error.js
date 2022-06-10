@@ -22,9 +22,6 @@
   }
 
 } */
-/* const errorMsg = {
-  ingredient,
-  appareil,
-  ustensils
+/* const errorMsg = {ingredient, appareil, ustensils
 }
 export default errorMsg */
