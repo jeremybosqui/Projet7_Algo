@@ -45,7 +45,7 @@ export default class Recette {
     recetteMetodology.setAttribute('class', 'process')
     //========== mise en place de l'ellipsis sur le processus de fabrication de la recette pour eviter un text trop long
     if(this.description.length >= 200){
-      recetteMetodology.innerText = recetteMetodology.trunc(200)
+      recetteMetodology.innerText = recetteMetodology.trunc(this.description, 200)
     } else {
       recetteMetodology.innerText = this.description
     }
