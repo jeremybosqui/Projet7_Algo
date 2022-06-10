@@ -9,7 +9,7 @@ export default class api {
 
   //
 
-  static requete = async function (loadRecipe) {
+  static requete = async () => {
     /*fetch('./recipes.json').then(function(response) {
       if(response.ok) {
         response.blob()
@@ -30,7 +30,6 @@ loadRecipe()*/
     } else {
       throw"Appel api échoué"
     }
-    loadRecipe();
   }
   
   /**

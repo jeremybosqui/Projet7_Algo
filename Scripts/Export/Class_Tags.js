@@ -34,6 +34,20 @@ export default class Tags {
     this.tagElmts = LiElements
     return LiElements
   }
+  //========= creation du tag qui aura un style de list à intégrer dans le dropdown 
+  /**
+   * @returns {HTMLElement}
+   */
+  ListTags = () => {
+    if (this.ListTagsDd) {return this.ListTagsDd}
+    const elementsTags = document.createElement('li')
+    elementsTags.setAttribute('data-value', this.name)
+    elementsTags.innerText = this.name
+    //======= ajout de l'eventlistener pour ajouter le tag sur lequel l'utilisateur va cliquer dans la barre de tags créé
+    elementsTags.addEventListener('click', this.ajtTag)
+    this.ListTagsDd = elementsTags
+    return elementsTags
+  }
   //========= ajouter un tag qui sera le tag actif afficher sur la page
   ajtTag = () => {
 

@@ -53,7 +53,7 @@ export default class DropdownFilter {
     filterUl.setAttribute('class', `dropdown-item__list ${this.type}-dropdown`)
     //======= ajout des elements dans la list
     this.items.forEach(item => {
-      filterUl.appendChild(item.listElement())
+      filterUl.appendChild(item.ListTags())
       this.ListofTags = [...this.ListofTags, item]
     })
     //======= filterMsgError setattribute , instanciation du message d'erreur

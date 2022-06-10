@@ -26,12 +26,12 @@ try {
   new DropdownFilter('ustensil', getUstensils)
   //======== ajoute les listes dropdown dans le dom
   DropdownFilter.instances.forEach(dropdown => {
-    elemntsDom.append(dropdown.element, document.getElementById('dropdown_filters'))
+    elemntsDom.elemAppend(dropdown.element, document.getElementById('dropdown_filters'))
   })
   //====== creer les recette qui seront ajouter dans le dom
   api.setEvryRecipes().forEach(recipe => {
     const item = new Recette(recipe)
-    elemntsDom.append(item.Recette, document.getElementById('container_of_recipes'))
+    elemntsDom.elemAppend(item.Recette, document.getElementById('container_of_recipes'))
   })
   // ajouter l'ecouteur d'evenements sur la barre de recherche principal
   MainSearch.addEventListener('input', (e) => {
@@ -48,5 +48,6 @@ try {
   const showError = document.createElement('h1')
   showError.setAttribute('class', 'showErrorMsg')
   showError.innerText = error
+  console.log(error)
   document.body.appendChild(showError)
 }

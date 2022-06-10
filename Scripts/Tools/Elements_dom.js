@@ -1,5 +1,4 @@
 /**
-     * @constructs
      * @param {HTMLElement} element
      * @param {HTMLElement} target
      */
@@ -8,7 +7,6 @@ const elemAppend = (element, target) => {
   target.appendChild(element)
 }
 /**
-     * @constructs
      * @param {HTMLElement} element
      * @param {HTMLElement} target
      */
@@ -17,7 +15,6 @@ const elemntReplace = (element, target) => {
   target.parentNode.replaceChild(element, target)
 }
 /**
-     * @constructs
      * @param {HTMLElement} element
      * @param {HTMLElement} target
      */
@@ -26,7 +23,6 @@ const insertElmntsBefore = (element, target) => {
   target.parentNode.insertBefore(element, target)
 }
 /**
-     * @constructs
      * @param {HTMLElement} element
      * @param {HTMLElement} target
      */
@@ -35,7 +31,6 @@ const insertElmntsAfter = (element, target) => {
   target.after(element)
 }
 /**
-     * @constructs
      * @param {HTMLElement} element
      */
 //========= cela permet de supprimer un element du dom
