@@ -1,64 +1,81 @@
-export default class Recette {
+import tools from '../Tools/Tools.js'
+
+export default class Recette{
   /**
-     * @constructs
-     * @param {data} data // data contenu dans le fichier json des recettes
-     */
-  constructor(data){
-    this.Id = data.id
-    this.ingredients = data.ingredients
-    this.ustensils = data.ustensils
-    this.Name = data.name
-    this.visible = true
-    this.quantity = data.quantity
-    this.unit = data.unit
-    this.description = data.description
-    this.appareils = data.appareils
-    this.time = data.time
-    Recette.instances = [...Recette.instances, this]
-  }
-  static instances = []
-  /**
-   * @returns {HTMLElement}
+   * @constructs
+   * @param {*} data 
    */
-  displayRecipeCard = () => {
-    //======== instanciation des const
-    const mainDIv = document.createElement('article')
-    const recetteImg = document.createElement('img')
-    const recetteDescription = document.createElement('div')
-    const ingredientsRecette = document.createElement('ul')
-    const recetteDescriptionTop = document.createElement('div')
-    const recetteDescriptionBttm = document.createElement('div')
-    const recetteMetodology = document.createElement('p')
-    //============ elmnts setattribute
-    mainDIv.setAttribute('class', 'recipes')
-    recetteImg.setAttribute('class', 'recipes-img')
-    recetteImg.setAttribute('src', '../imageCardRecipe/img3x3.png')
-    recetteDescription.setAttribute('class', 'recipes__description')
-    ingredientsRecette.setAttribute('class', 'ingredients-list')
-    recetteDescriptionBttm.setAttribute('class', 'recipes__description__bottom')
-    recetteDescriptionTop.setAttribute('class', 'recipes__description__top')
-    //========= elmnt rendu HTML
-    recetteDescriptionTop.innerHTML = ` <h1 class="name">${this.name}</h1> <span class="duration"><i class="far fa-clock"></i>${this.time} min</span>`
-    this.ingredientsRecette.forEach(ingredient => {
-      ingredientsRecette.innerHTML += `<li class="ingredients-list__item"><span>${ingredient.ingredient}: </span>${ingredient.quantity} ${ingredient.unit || ''}</li>`
-    })
-    recetteMetodology.setAttribute('class', 'process')
-    //========== mise en place de l'ellipsis sur le processus de fabrication de la recette pour eviter un text trop long
-    if(this.description.length >= 200){
-      recetteMetodology.innerText = recetteMetodology.trunc(this.description, 200)
-    } else {
-      recetteMetodology.innerText = this.description
-    }
-    //======= ajout des elements dans leur emplacements via la methode appendChild déjà utilisé
-    mainDIv.appendChild(recetteImg, recetteDescription)
-    recetteDescriptionBttm.appendChild(ingredientsRecette, recetteMetodology)
-    recetteDescription.appendChild(recetteDescriptionTop, recetteDescriptionBttm)
-    this.element = mainDIv
-    return mainDIv
+  constructor(data){
+    this.ustensils = data.ustensils;
+    this.servings = data.servings;
+    this.id = data.id;
+    this.name = data.name;
+    this.quantity = data.quantity;
+    this.unit = data.unit;
+    this.appareils = data.appliance.toLowerCase();
+    this.ingredients = data.ingredients;
+    this.description = data.description;
+    this.time = data.time;
+    this.visible = true;
+    Recette.instances = [...Recette.instances, this];
   }
-  //=========== 
-  ShowHiddenToggle = () => {
-    this.element.classList.toggle('hidden')
-    this.visible = !this.visible
+  //======
+  static instances = [];
+  /**
+     * @returns {HTMLElement}
+     */
+  displayRecipeCard = () => {
+    const container = document.createElement('article');
+    const image = document.createElement('img');
+    const descTop = document.createElement('div');
+    const description = document.createElement('div');
+    const ingredients = document.createElement('ul');
+    const process = document.createElement('p');
+    const descBottom = document.createElement('div');
+    //========
+    image.setAttribute('class', 'recipes__img');
+    image.setAttribute('src', 'Scripts/imageCardRecipe/carre 380 x 300.png');
+    //==========
+    descBottom.setAttribute('class', 'recipes__description__bottom');
+    //=========
+    container.setAttribute('class', 'recipes');
+    //============
+    description.setAttribute('class', 'recipes__description');
+    //============
+    descTop.setAttribute('class', 'recipes__description__top');
+    //============
+    descTop.innerHTML = `
+        <h2 class="name">${this.name}</h2>
+        <span class="duration"><i class="far fa-clock"></i>${this.time} min</span>`;
+    //=========
+    ingredients.setAttribute('class', 'ingredients-list');
+    this.ingredients.forEach(ingredient => {
+      ingredients.innerHTML += `<li class="ingredients-list__item"><span>${ingredient.ingredient}: </span>${ingredient.quantity} ${ingredient.unit || ''}</li>`;
+    });
+    //=========
+    process.setAttribute('class', 'process');
+    if (this.description.length >= 200) {
+      process.innerText = tools.truncateStringEllipsis(this.description, 200);
+    }else{
+      process.innerText = this.description;
+    }
+    //==========
+    descBottom.appendChild(ingredients);
+    descBottom.appendChild(process);
+    //========
+    description.appendChild(descTop);
+    description.appendChild(descBottom);
+    //===========
+    container.appendChild(image);
+    container.appendChild(description);
+    //==========
+    this.element = container;
+    //=========
+    return container;
+  }
+  //==============
+  ShowOrHideToggle = () => {
+    this.element.classList.toggle('hidden');
+    this.visible = !this.visible;
   }
 }

@@ -21,7 +21,7 @@
     document.querySelector('.ustensile-dropdown .error-msg').classList.remove('visible')
   }
 
-} */
-/* const errorMsg = {ingredient, appareil, ustensils
+} 
+ const errorMsg = {ingredient, appareil, ustensils
 }
 export default errorMsg */

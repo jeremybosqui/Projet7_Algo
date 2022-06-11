@@ -10,35 +10,33 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
-    
+    <!--mise en place des scripts js-->
     <script src="Scripts/Main.js" type="module"></script>
     <script src="Scripts/Tools/Scroll_Btn_Top.js" defer></script>
 </head>
 <body>
     <!--mise en place du logo-->
-    <header>
+    <header class="header">
         <a href="index.html"><img class="header__logo" src="assets/img/logo.svg" alt="Les_petits_plats"></a>
     </header>
-    <div class="header"></div>
-    <!--mise en place du bouton scroll top en JS-->
-    <button id="scrollToTopBtn">
+     <!--mise en place du bouton scroll top en JS-->
+     <button class="scrollToTopBtn">
         <i class="fa fa-arrow-up" aria-hidden="true"></i>
     </button>
-
-    <!-- recherche principal -->
+   <!-- recherche principal -->
     <div class="main-rech">
-        <input type="text" id="main-rech__input" class="main-rech__input"  name="main-rech" placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette">
+        <input type="text" class="main-rech__input" id="main-rech__input" name="main-rech" placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette">
         <i class="fas fa-search main-rech__icon"></i>
     </div>
 
     <!-- tags actif -->
-    <ul  class="list_of_tags" id="list_of_tags"> </ul>
+    <ul id="listOftags" class="listOftags"></ul>
 
     <!-- filter dropdown content -->
-    <div class="dropdown_filters" id="dropdown_filters"> </div>
+    <div id="dropdown_filters" class="dropdown_filters"></div>
 
     <!-- recettes cards -->
-    <div id="container_of_recipes" class="container_of_recipes">
+    <div id="containerOfrecipes" class="containerOfrecipes">
         <p class="empty_msg">Aucune recette ne correspond à votre critère… vous pouvez
             chercher « tarte aux pommes », « poisson », etc.</p>
     </div>
