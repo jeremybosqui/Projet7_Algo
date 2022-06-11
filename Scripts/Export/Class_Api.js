@@ -1,95 +1,91 @@
-//===========
-export default class api {
-  static recettes = []
-  static LsIngredients = []
-  static LsAppliances = []
-  static LsUstensils = []  
-  //==============
-  static requete = async () => {
+//==============
+export default class Api{ 
+  static recipes = [];
+  static allIngredients = [];
+  static allAppliances = [];
+  static allUstensils = [];
+  //===========
+  static init = async () => {
     /*fetch('./recipes.json').then(function(response) {
       if(response.ok) {
         response.blob()
       }
     } )*/
-
     /*const response = await fetch('./recipes.json')
     const req = await response.json()
     console.log(req)
   }
 loadRecipe()*/
-    const request = await fetch ('./recipes.json')
-    const data = await request.json()
-    api.recettes = data.recipes
-    if (request.ok) {
+    const req = await fetch('./recipes.json');
+    const data = await req.json();
+    if (req.ok) {
       console.log("Appel api réussi")
-    } else {
-      throw"Appel api échoué"
+    }else {
+      throw "Appel api échoué";
     }
+    Api.recipes = data.recipes;
   }
-  
   /**
-   * @returns {array}
+   * @returns {array} 
    */
-  static setIngredients = () => {
+  static getAllIngredients = () => {
 
-    if (api.LsIngredients.length === 0) {
-      api.recettes.forEach(recette => {
-        recette.ingredients.map(ingredients => {
-          const ingredient = ingredients.ingredient
-          if (api.LsIngredients.includes(ingredient)) {
-            api.LsIngredients = [...api.LsIngredients, ingredient]
+    if (Api.allIngredients.length === 0) {
+      Api.recipes.forEach(recipe => {
+        recipe.ingredients.map( ingredients => {
+          const ingredient =  ingredients.ingredient;
+          if (!Api.allIngredients.includes(ingredient.toLowerCase())) {
+            Api.allIngredients = [...Api.allIngredients, ingredient.toLowerCase()];
           }
         })
       })
     }
-    return api.LsIngredients
-  }
-
-  /**
- * @returns {array}
- */
-  static setUstensils = () => {
-    if (api.LsUstensils.length === 0){
-      api.recettes.forEach(recette=> {
-        recette.ustensils.map(ustensil => {
-          if (!api.LsUstensils.includes(ustensil)){
-            api.LsUstensils = [...api.LsUstensils, ustensil]
-          }
-        })
-      })
-    }
-    return api.LsUstensils
+    return Api.allIngredients;
   }
   /**
-   * @returns {array}
+   * @returns {array} 
    */
-  static setAppliances = () => {
-    if (api.LsAppliances.length === 0) {
-      api.recettes.forEach(recette => {
-        if (!api.LsAppliances.includes(recette.appliance)) {
-          api.LsAppliances = [...api.LsAppliances, recette]
+  static getAllAppliances = () => {
+    if (Api.allAppliances.length === 0) {
+      Api.recipes.forEach(recipe => {
+        if (!Api.allAppliances.includes(recipe.appliance.toLowerCase())) {
+          Api.allAppliances = [...Api.allAppliances, recipe.appliance.toLowerCase()];
         }
       })
     }
-    return api.LsAppliances
+    return Api.allAppliances;
   }
-
-  static setEvryRecipes = () => {
-    return api.recettes
-  }
-
   /**
-  * @param {number} // récupérer une recette par rapport à son id
-  * @returns {object} // init object dans lequel il y a les détails de recette
-  */
-  static setRecette = (id) => {
-    const recette = api.recettes.filter (recette => recette.id === id)
-    if (recette.length === 1) {
-      console.log("Aucun soucis de recette")
-    } else {
-      console.error("Recette indisponible")
+   * @returns {array} 
+   */
+  static getAllUstensils = () => {
+    if (Api.allUstensils.length === 0) {
+      Api.recipes.forEach(recipe => {
+        recipe.ustensils.map( ustensile => {
+          if (!Api.allUstensils.includes(ustensile.toLowerCase())) {
+            Api.allUstensils = [...Api.allUstensils, ustensile.toLowerCase()];
+          }
+        })
+      })
     }
-    return recette
+    return Api.allUstensils;
   }
-
+  //===========
+  static getAllRecipes = () => {
+    return Api.recipes;
+  }
+  /**
+   * @param {number} id 
+   * @returns {object} 
+   */
+  static getRecipe = (id) => {
+    const recette = Api.recipes.filter(recipe => recipe.id === id);
+    if (recette.length === 1) {
+      console.log("recette ok");
+      return;
+    } else {
+      console.error("Recette introuvable.");
+    }
+    return recette[0];
+  }
 }

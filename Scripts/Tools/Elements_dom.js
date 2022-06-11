@@ -1,44 +1,39 @@
+//============ 
 /**
-     * @param {HTMLElement} element
-     * @param {HTMLElement} target
-     */
-//======= cela permet d'ajouter un element à la fin d'un autre
-const elemAppend = (element, target) => {
-  target.appendChild(element)
+ * @param {HTMLElement} element 
+ * @param {HTMLElement} target 
+ */
+ const elemntAppend = (element, target) => {
+  target.appendChild(element);
 }
 /**
-     * @param {HTMLElement} element
-     * @param {HTMLElement} target
-     */
-//========= cela permet de remplacer un element par un autre
+* @param {HTMLElement} element 
+* @param {HTMLElement} target 
+*/
 const elemntReplace = (element, target) => {
-  target.parentNode.replaceChild(element, target)
+  target.parentNode.replaceChild(element, target);
 }
 /**
-     * @param {HTMLElement} element
-     * @param {HTMLElement} target
-     */
-//========= cela permet d'inserer un element avant un autre
-const insertElmntsBefore = (element, target) => {
-  target.parentNode.insertBefore(element, target)
+* @param {HTMLElement} element 
+* @param {HTMLElement} target 
+*/
+const insertElemntsBefore = (element, target) => {
+  target.parentNode.insertElemntsBefore(element, target);
 }
 /**
-     * @param {HTMLElement} element
-     * @param {HTMLElement} target
-     */
-//=========  cela permet d'inserer un element apres un autre
-const insertElmntsAfter = (element, target) => {
-  target.after(element)
+* @param {HTMLElement} element 
+* @param {HTMLElement} target 
+*/
+const insertElemntsAfter = (element, target) => {
+  target.after(element);
 }
 /**
-     * @param {HTMLElement} element
-     */
-//========= cela permet de supprimer un element du dom
-const deleteElmnt = (element) => {
-  element.parentNode.removeChild(element)
+* @param {HTMLElement} element
+*/
+const deleteElement = (element) => {
+  element.parentNode.removeChild(element);
 }
-
 const elemntsDom = {
-  elemAppend, elemntReplace, insertElmntsAfter, insertElmntsBefore, deleteElmnt
+  elemntAppend, elemntReplace, insertElemntsBefore, insertElemntsAfter, deleteElement
 }
-export default elemntsDom
+export default elemntsDom;
