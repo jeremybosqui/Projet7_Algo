@@ -10,37 +10,33 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
-    
-    <script src="scripts/Main.js" type="module"></script>
-    <script src="scripts/modules/scrollTopBtn.js" defer></script>
+    <!--mise en place des scripts js-->
+    <script src="Scripts/Main.js" type="module"></script>
+    <script src="Scripts/Tools/Scroll_Btn_Top.js" defer></script>
 </head>
 <body>
     <!--mise en place du logo-->
     <header class="header">
         <a href="index.html"><img class="header__logo" src="assets/img/logo.svg" alt="Les_petits_plats"></a>
     </header>
-
-    <!--mise en place du bouton scroll top en JS-->
-    <button class="scrollToTopBtn">
+     <!--mise en place du bouton scroll top en JS-->
+     <button class="scrollToTopBtn">
         <i class="fa fa-arrow-up" aria-hidden="true"></i>
     </button>
-
-    <!-- Barre de recherche principal -->
-    <div class="search-principal">
-        <input type="text" class="search-principal__input" id="search-principal__input" name="search-principal" spellcheck="true" placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette">
-        <i class="fas fa-search search-principal__icon"></i>
+   <!-- recherche principal -->
+    <div class="main-rech">
+        <input type="text" class="main-rech__input" id="main-rech__input" name="main-rech" placeholder="Rechercher un ingrédient, appareil, ustensiles ou une recette">
+        <i class="fas fa-search main-rech__icon"></i>
     </div>
 
-    <!-- Liste des tags actif -->
-    <ul id="tags_list" class="tags_list">
-    </ul>
+    <!-- tags actif -->
+    <ul id="listOftags" class="listOftags"></ul>
 
-    <!-- Filtre déroulant de recherche -->
-    <div id="filters_dropdown" class="filters_dropdown">
-    </div>
+    <!-- filter dropdown content -->
+    <div id="dropdown_filters" class="dropdown_filters"></div>
 
-    <!-- Cartes des recettes -->
-    <div id="recipes_container" class="recipes_container">
+    <!-- recettes cards -->
+    <div id="containerOfrecipes" class="containerOfrecipes">
         <p class="empty_msg">Aucune recette ne correspond à votre critère… vous pouvez
             chercher « tarte aux pommes », « poisson », etc.</p>
     </div>
