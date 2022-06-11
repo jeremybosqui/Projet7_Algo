@@ -3,7 +3,7 @@
  * @param {HTMLElement} element 
  * @param {HTMLElement} target 
  */
- const elemntAppend = (element, target) => {
+const elemntAppend = (element, target) => {
   target.appendChild(element);
 }
 /**
