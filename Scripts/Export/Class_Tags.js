@@ -1,6 +1,6 @@
 //============== mise en place des imports
 import elemntsDom from "../Tools/Elements_dom.js";
-import algoRecherche from "../Tools/Algo_FInal_Recherche.js";
+import algo1Recherche from "../Tools/Algo_1_Recherche.js";
 import Recette from "./Class_Recipe.js";
 //============
 export default class Tags{
@@ -53,7 +53,7 @@ export default class Tags{
   addTag = () => {
     Tags.active = [...Tags.active, this];
     elemntsDom.elemntAppend(this.viewElemntTag(), document.getElementById('listOftags'));
-    algoRecherche(Tags.active, Recette.instances);
+    algo1Recherche(Tags.active, Recette.instances);
     this.listElementRes.classList.add('already-selected');
   }
   //==========
@@ -61,7 +61,7 @@ export default class Tags{
     const newActiveTags = Tags.active.filter(tag => tag !== this);
     Tags.active = newActiveTags;
     elemntsDom.deleteElement(this.viewElemntTag());
-    algoRecherche(Tags.active, Recette.instances);
+    algo1Recherche(Tags.active, Recette.instances);
     this.listElementRes.classList.remove('already-selected');
   }
 }
