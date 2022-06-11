@@ -43,7 +43,7 @@
     }
 }
 
-.list_of_tags{
+.listOftags{
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -62,7 +62,7 @@
     }
 }
 
-.container_of_recipes{
+.containerOfrecipes{
     display: grid;
     grid-template-columns: 1fr;
     gap: 30px;

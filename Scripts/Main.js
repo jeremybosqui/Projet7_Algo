@@ -3,7 +3,7 @@ import Api from "./Export/Class_Api.js";
 import DropdownFilters from "./Export/Class_Dropdown_Filter.js";
 import Tags from "./Export/Class_Tags.js";
 import Recette from "./Export/Class_Recipe.js";
-import algoRecherche from "./Tools/Algo_FInal_Recherche.js";
+import Algo1recherche from "./Tools/Algo_1_Recherche.js";
 //=======
 const searchPrincipal = document.getElementById('main-rech__input');
 //=========
@@ -36,7 +36,7 @@ try {
   searchPrincipal.addEventListener('input', (e) => {
     //======== 
     if (e.target.value.length >= 3 || e.inputType === "deleteContentBackward") {
-      algoRecherche(Tags.active, Recette.instances);
+      Algo1recherche(Tags.active, Recette.instances);
     }
   })
 } catch (error) {

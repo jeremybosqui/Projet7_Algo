@@ -1,6 +1,6 @@
 'use strict'
 
-const scrollToTopBtn = document.querySelector("#scrollToTopBtn");
+const scrollToTopBtn = document.querySelector(".scrollToTopBtn");
 const rootElement = document.documentElement;
 
 function handleScroll() {
