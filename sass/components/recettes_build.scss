@@ -1,7 +1,7 @@
 
 .recipes{
     background-color: $grey;
-    border-radius: $borderRadius;
+    border-radius: 5px;
     
     overflow: hidden;
     cursor: pointer;
@@ -45,10 +45,10 @@
             }
         }
 
-        .name{ font-weight: 400; font-size: 1.125rem; }
+        .name{ font-weight: 400; font-size: 20px; }
         .duration{
             font-weight: 600;
-            font-size: 1.25rem;
+            font-size: 18px;
 
             .far{ margin-right: 8px; }
         }
@@ -58,7 +58,7 @@
             max-width: 50%;
             flex-shrink: 0;
 
-            font-size: .75rem;
+            font-size: 13px;
 
             &__item span{
                 font-weight: 600;
@@ -66,7 +66,7 @@
         }
 
         .process{
-            font-size: .75rem;
+            font-size: 13px;
         }
     }
 

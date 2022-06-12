@@ -5,7 +5,8 @@ export default class Api{
   static allAppliances = [];
   static allUstensils = [];
   //=========== simulation d'une connection à la base de donnée recipes.json
-  static init = async () => {
+  static init = async () => { // permet de définir une méthode statique d'une classe. Les méthodes statiques ne sont pas disponibles sur les instances d'une classe mais sont appelées sur la classe elle-même. Les méthodes statiques sont généralement des fonctions utilitaires (qui peuvent permettre de créer ou de cloner des objets par exemple)
+    
     /*fetch('./recipes.json').then(function(response) {
       if(response.ok) {
         response.blob()
@@ -61,9 +62,9 @@ loadRecipe()*/
   static getAllUstensils = () => {
     if (Api.allUstensils.length === 0) {
       Api.recipes.forEach(recipe => {
-        recipe.ustensils.map( ustensile => {
-          if (!Api.allUstensils.includes(ustensile.toLowerCase())) {
-            Api.allUstensils = [...Api.allUstensils, ustensile.toLowerCase()];
+        recipe.ustensils.map( ustensil => {
+          if (!Api.allUstensils.includes(ustensil.toLowerCase())) {
+            Api.allUstensils = [...Api.allUstensils, ustensil.toLowerCase()];
           }
         })
       })

@@ -8,7 +8,7 @@
 
     padding: 20px 20px;
     color: $white;
-    border-radius: $borderRadius;
+    border-radius: 5px;
     font-size: 1.125rem;
 
     &.entries{
@@ -75,7 +75,7 @@
             top: 60px;
             left: 0;
             padding: 20px;
-            border-radius: $borderRadius;
+            border-radius: 5px;
             grid-template-columns: repeat(3, 1fr);
         }
 
@@ -83,6 +83,7 @@
             cursor: pointer;
             background-color: inherit;
 
+            &:hover {color:  #7c241a; text-decoration: underline;}
             &.hidden-by-tags, &.hidden-by-keydown, &.already-selected{ display: none; }
     
             &::first-letter{
@@ -94,7 +95,7 @@
         &::-webkit-scrollbar { background: none; width: 10px; }
         &::-webkit-scrollbar-thumb {
             background-color: rgba($black, .1);
-            border-radius: $borderRadius;
+            border-radius: 5px;
             width: 10px;
         }
     }

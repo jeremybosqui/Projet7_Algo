@@ -167,7 +167,7 @@ export default class DropdownFilters{
   static visibleVoidRecipesMsg = () => {
     const ingredient = document.querySelectorAll('.ingredient-dropdown li:not(.hidden-by-tags):not(.already-selected):not(.hidden-by-keydown)');
     const appareil = document.querySelectorAll('.appareil-dropdown li:not(.hidden-by-tags):not(.already-selected):not(.hidden-by-keydown)');
-    const ustensile = document.querySelectorAll('.ustensile-dropdown li:not(.hidden-by-tags):not(.already-selected):not(.hidden-by-keydown)');
+    const ustensil = document.querySelectorAll('.ustensile-dropdown li:not(.hidden-by-tags):not(.already-selected):not(.hidden-by-keydown)');
     if (appareil.length === 0) {
       document.querySelector('.appareil-dropdown .empty_msg').classList.add('visible');
     }else{
@@ -178,7 +178,7 @@ export default class DropdownFilters{
     }else{
       document.querySelector('.ingredient-dropdown .empty_msg').classList.remove('visible');
     }
-    if (ustensile.length === 0) {
+    if (ustensil.length === 0) {
       document.querySelector('.ustensile-dropdown .empty_msg').classList.add('visible');
     }else{
       document.querySelector('.ustensile-dropdown .empty_msg').classList.remove('visible');
