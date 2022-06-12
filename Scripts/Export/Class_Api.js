@@ -4,7 +4,7 @@ export default class Api{
   static allIngredients = [];
   static allAppliances = [];
   static allUstensils = [];
-  //===========
+  //=========== simulation d'une connection à la base de donnée recipes.json
   static init = async () => {
     /*fetch('./recipes.json').then(function(response) {
       if(response.ok) {
@@ -25,7 +25,7 @@ loadRecipe()*/
     }
     Api.recipes = data.recipes;
   }
-  /**
+  /** ceci permet de recuperer tous les ingredients de toutes les recettes et retourne un tableau dans lequel ils seront contenu
    * @returns {array} 
    */
   static getAllIngredients = () => {
@@ -42,7 +42,7 @@ loadRecipe()*/
     }
     return Api.allIngredients;
   }
-  /**
+  /** ceci permet de recuperer tous les appareils et de retourne un tableau dans lequel ils seront contenu
    * @returns {array} 
    */
   static getAllAppliances = () => {
@@ -55,7 +55,7 @@ loadRecipe()*/
     }
     return Api.allAppliances;
   }
-  /**
+  /** ceci permet de recuperer tous les ustensils et retourne un tableau dans lequel ils seront tous contenu 
    * @returns {array} 
    */
   static getAllUstensils = () => {
@@ -70,13 +70,12 @@ loadRecipe()*/
     }
     return Api.allUstensils;
   }
-  //===========
+  //=========== ceci permet de recuperer toutes les recettes qui existent dans le fichier
   static getAllRecipes = () => {
     return Api.recipes;
   }
   /**
-   * @param {number} id 
-   * @returns {object} 
+   * @param {number} id correspond à l'id d'une recette du fichier json
    */
   static getRecipe = (id) => {
     const recette = Api.recipes.filter(recipe => recipe.id === id);

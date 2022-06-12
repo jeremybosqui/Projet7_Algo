@@ -6,8 +6,8 @@ import Recette from "./Class_Recipe.js";
 export default class DropdownFilters{
   /**
    * @constructs
-   * @param {*} type //
-   * @param {*} items //
+   * @param {*} type //=====
+   * @param {*} items //=====
    */
   constructor(type, items) {
     this.type = type;
@@ -31,56 +31,57 @@ export default class DropdownFilters{
   //======== 
   setFilterView = () => {
     //============ build view, instancier les const
-    const container = document.createElement('div');
-    const input = document.createElement('input');
-    const label = document.createElement('p');
-    const emptyMsg = document.createElement('p');
-    const icon = document.createElement('i');
-    const list = document.createElement('ul');
+    const mainDiv = document.createElement('div'); //=== creation de la div parent 
+    const filterInput = document.createElement('input'); //====== creation de l'input 
+    const filterLabel = document.createElement('p'); //===== creation du label
+    const filterMsgError = document.createElement('p'); //===== creation du paragraphe contenant le message d'erreur 
+    const filterIcon = document.createElement('i'); //====== creation de l'icon 
+    const filterUl = document.createElement('ul'); //====== ceration de la list ul 
     //=========== mise en place des elements des constantes
-    container.setAttribute('class', `dropdown-item dd-${this.type}`);
-    container.setAttribute('data-state', 'close');
+    mainDiv.setAttribute('class', `dropdown-item dd-${this.type}`);
+    mainDiv.setAttribute('data-state', 'close');
     //============ setattribute input
-    input.setAttribute('type', 'text');
-    input.setAttribute('class', 'dropdown-item__input');
-    input.setAttribute('id', `${this.type}-input`);
-    input.setAttribute('name', `${this.type}-input`);
-    input.setAttribute('placeholder', `Rechercher un ${this.label}`);
+    filterInput.setAttribute('type', 'text');
+    filterInput.setAttribute('class', 'dropdown-item__input');
+    filterInput.setAttribute('id', `${this.type}-input`);
+    filterInput.setAttribute('name', `${this.type}-input`);
+    filterInput.setAttribute('placeholder', `Rechercher un ${this.label}`);
     //========== setattribute label
-    label.setAttribute('class', 'dropdown-item__label');
-    label.innerText = `${this.label}s`;
+    filterLabel.setAttribute('class', 'dropdown-item__label');
+    filterLabel.innerText = `${this.label}s`;
     //============= setaatribute icon
-    icon.setAttribute('class', 'fas fa-chevron-down dropdown-item__icon');
-    this.closeIcon = icon;
+    filterIcon.setAttribute('class', 'fas fa-chevron-down dropdown-item__icon');
+    this.closeIcon = filterIcon;
     //============set attribute list itemp dropdown
-    list.setAttribute('class', `dropdown-item__list ${this.type}-dropdown`);
+    filterUl.setAttribute('class', `dropdown-item__list ${this.type}-dropdown`);
     //=========== remplissage des list creer avec les elements via la methode appendChild
     this.items.forEach(item => {
-      list.appendChild(item.listElement());
+      filterUl.appendChild(item.listElement());
       this.tagList = [...this.tagList, item];
     });
     //======== setattribute msg error
-    emptyMsg.setAttribute('class', 'empty_msg');
-    emptyMsg.style.fontSize = "18px"
-    emptyMsg.innerText = "Aucun filtre disponible";
+    filterMsgError.setAttribute('class', 'empty_msg');
+    filterMsgError.style.fontSize = "18px"
+    filterMsgError.style.color="";
+    filterMsgError.innerText = "Aucun filtre disponible";
     //=========== ajout des elements enfants dans les elements parents via la méthode appendchild
-    list.appendChild(emptyMsg);
+    filterUl.appendChild(filterMsgError);
     //================
-    container.appendChild(input);
-    // container.append(removeAccents);
-    container.appendChild(label);
-    container.appendChild(icon);
-    container.appendChild(list);
+    mainDiv.appendChild(filterInput);
+    // mainDiv.append(removeAccents);
+    mainDiv.appendChild(filterLabel);
+    mainDiv.appendChild(filterIcon);
+    mainDiv.appendChild(filterUl);
     //========== ajout des ecouteurs d'evenemnts au click afin d'ouvrir le contenu d'un des filtres et aussi un eventelistener sur l'input afin d'afficher les eleemnts correspondant à la recherche utilisateur
-    container.addEventListener('click', this.open)
+    mainDiv.addEventListener('click', this.open)
     //=========
-    input.addEventListener('input', this.DropdownInputResearch)
-    this.element = container;
+    filterInput.addEventListener('input', this.DropdownInputResearch)
+    this.element = mainDiv;
   }
   /**
      * @param {InputEvent} e 
      */
-  //============= 
+  //============= rechercher dans la liste des tags si il y a des tags qui correspondent à la recherche de l'utilisateur 
   DropdownInputResearch = (e) => {
     const content = e.target.value.toLowerCase();
     if (content.length >= 3 || (e.inputType === 'deleteContentBackward' && content.length >= 3)) {
@@ -99,7 +100,7 @@ export default class DropdownFilters{
         tag.listElementRes.classList.remove('hidden-by-keydown');
       })
     }
-    /*if (!/^([^0-9]*)$/.test(content.value)) { // regex pour la validation du nom
+    /*if (!/^([^0-9]*)$/.test(content.value)) { // regex 
       return false;
     }*/
     DropdownFilters.visibleVoidRecipesMsg()  
@@ -107,7 +108,7 @@ export default class DropdownFilters{
   /**
      * @param {PointerEvent} f 
      */
-  //===============
+  //=============== ouverture du menu DD si l'utilisateur click sur l'icon arrow down
   open = (f) => {
     f.stopPropagation(); 
     DropdownFilters.instances.forEach(dropdown => {
@@ -126,7 +127,7 @@ export default class DropdownFilters{
   /**
      * @param {PointerEvent} g 
      */
-  //===============
+  //=============== fermeture du menu DD si l'utilisateur click a nouveau sur l'icon qui se transform en arrow up et si jamais il click en dehors du menu DD cela ferme aussi le menu 
   close = (g) => {
     if (tools.closeFiltersDd(g.target, this.element) || g.target === this.closeIcon) {
       this.element.setAttribute('data-state', 'close');
@@ -134,29 +135,29 @@ export default class DropdownFilters{
       this.element.addEventListener('click', this.open);
     }
   }
-  //==============
+  //============== fonction permettant de mettre à jour chacune des listes DD
   static dropdownMajFilters = () => {
     const recipes = Recette.instances.filter(recipe => recipe.visible );
     const lis = document.querySelectorAll('.dropdown-item__list li');
     lis.forEach(li => li.classList.add('hidden-by-tags'));
-    //=========
+    //========= MAJ des appareils de la liste du DD
     recipes.forEach(recipe => {
       const appareils = document.querySelectorAll(`.appareil-dropdown [data-value="${recipe.appareils}"]`);
       appareils.forEach(appareil => appareil.classList.remove('hidden-by-tags'));
-      //======
+      //====== MAJ des ingredients de la liste du DD
       const ingredients = recipe.ingredients;
       ingredients.forEach(current => {
         const ingredientElement = document.querySelector(`.ingredient-dropdown [data-value="${current.ingredient.toLowerCase()}"]`);
         ingredientElement.classList.remove('hidden-by-tags');
       })
-      //========
+      //======== MAJ des ustensils de la liste du DD
       const ustensils = recipe.ustensils;
       ustensils.forEach(current => {
         const ustensilElement = document.querySelector(`.ustensile-dropdown [data-value="${current.toLowerCase()}"]`);
         ustensilElement.classList.remove('hidden-by-tags');
       })
     })
-    //=======
+    //======= mise en place d'un setTimeOut qui permettra d'afficher le msg d'erreur pour l'utilisateur si nécessaire , à la fin de la boucle d'events
     setTimeout(() => {
       DropdownFilters.visibleVoidRecipesMsg()  
     }, 0);

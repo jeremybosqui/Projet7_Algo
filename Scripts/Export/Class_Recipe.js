@@ -24,56 +24,56 @@ export default class Recette{
   /**
      * @returns {HTMLElement}
      */
+  //====== creation du rendu visuel d'une Card recette
   displayRecipeCard = () => {
-    const container = document.createElement('article');
-    const image = document.createElement('img');
-    const descTop = document.createElement('div');
-    const description = document.createElement('div');
-    const ingredients = document.createElement('ul');
-    const process = document.createElement('p');
-    const descBottom = document.createElement('div');
-    //========
-    image.setAttribute('class', 'recipes__img');
-    image.setAttribute('src', 'Scripts/imageCardRecipe/carre 380 x 300.png');
-    //==========
-    descBottom.setAttribute('class', 'recipes__description__bottom');
-    //=========
-    container.setAttribute('class', 'recipes');
-    //============
-    description.setAttribute('class', 'recipes__description');
-    //============
-    descTop.setAttribute('class', 'recipes__description__top');
-    //============
-    descTop.innerHTML = `
+    const mainContent = document.createElement('article');
+    const recetteImage = document.createElement('img');
+    const recetteDescripTop = document.createElement('div');
+    const recetteDescript = document.createElement('div');
+    const recetteIngredients = document.createElement('ul');
+    const recetteMethod = document.createElement('p');
+    const recetteDescriptBttm = document.createElement('div');
+    //========img setattribute
+    recetteImage.setAttribute('class', 'recipes__img');
+    recetteImage.setAttribute('src', 'Scripts/imageCardRecipe/carre 380 x 300.png');
+    //========== description bottom setattribute
+    recetteDescriptBttm.setAttribute('class', 'recipes__description__bottom');
+    //========= article setattribute
+    mainContent.setAttribute('class', 'recipes');
+    //============ description setaatribute
+    recetteDescript.setAttribute('class', 'recipes__description');
+    //============ description top setattribute
+    recetteDescripTop.setAttribute('class', 'recipes__description__top');
+    recetteDescripTop.innerHTML = `
         <h2 class="name">${this.name}</h2>
         <span class="duration"><i class="far fa-clock"></i>${this.time} min</span>`;
     //=========
-    ingredients.setAttribute('class', 'ingredients-list');
+    recetteIngredients.setAttribute('class', 'ingredients-list');
     this.ingredients.forEach(ingredient => {
-      ingredients.innerHTML += `<li class="ingredients-list__item"><span>${ingredient.ingredient}: </span>${ingredient.quantity} ${ingredient.unit || ''}</li>`;
+      recetteIngredients.innerHTML += `<li class="ingredients-list__item"><span>${ingredient.ingredient}: </span>${ingredient.quantity} ${ingredient.unit || ''}</li>`;
     });
     //=========
-    process.setAttribute('class', 'process');
+    recetteMethod.setAttribute('class', 'process');
     if (this.description.length >= 200) {
-      process.innerText = tools.truncateStringEllipsis(this.description, 200);
+      recetteMethod.innerText = tools.truncateStringEllipsis(this.description, 200);
     }else{
-      process.innerText = this.description;
+      recetteMethod.innerText = this.description;
     }
-    //==========
-    descBottom.appendChild(ingredients);
-    descBottom.appendChild(process);
+    //========== ajout des elements dans leur emplacements via la methode appendChild déjà utilisé
+    recetteDescriptBttm.appendChild(recetteIngredients);
+    recetteDescriptBttm.appendChild(recetteMethod);
     //========
-    description.appendChild(descTop);
-    description.appendChild(descBottom);
+    recetteDescript.appendChild(recetteDescripTop);
+    recetteDescript.appendChild(recetteDescriptBttm);
     //===========
-    container.appendChild(image);
-    container.appendChild(description);
+    mainContent.appendChild(recetteImage);
+    mainContent.appendChild(recetteDescript);
     //==========
-    this.element = container;
+    this.element = mainContent;
     //=========
-    return container;
+    return mainContent;
   }
-  //==============
+  //============== basculer la visibilité entre visible / non visible
   ShowOrHideToggle = () => {
     this.element.classList.toggle('hidden');
     this.visible = !this.visible;
