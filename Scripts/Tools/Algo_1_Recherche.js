@@ -34,7 +34,7 @@ const algo1Recherche = (filters, recipes) => {
     }
 
     if (recipe.element.classList.contains("hidden") === visible) {
-      recipe.toggleVisibility();
+      recipe.ShowOrHideToggle();
     }
   });
 

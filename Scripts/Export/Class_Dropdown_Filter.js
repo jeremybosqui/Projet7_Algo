@@ -84,7 +84,7 @@ export default class DropdownFilters{
   DropdownInputResearch = (e) => {
     const content = e.target.value.toLowerCase();
     if (content.length >= 3 || (e.inputType === 'deleteContentBackward' && content.length >= 3)) {
-      this.element.classList.add('entries');
+      
       this.tagList.forEach(tag => {
         const str = tag.name.toLowerCase();
         if (str.includes(content)) {
@@ -94,7 +94,7 @@ export default class DropdownFilters{
         }
       })
     }else{
-      this.element.classList.remove('entries');
+      
       this.tagList.forEach(tag => {
         tag.listElementRes.classList.remove('hidden-by-keydown');
       })
